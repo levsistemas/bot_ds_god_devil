@@ -5,6 +5,9 @@ const Discord = require('discord.js');
 const keep_alive = require ('./keep_alive.js');
 require ('./keep_alive.js');
 
+require('dotenv').config();
+const TOKEN_BOT = process.env.token_god_devil;
+
 //definir cliente
 const Client = new Discord.Client({
     intents: 33539
@@ -74,4 +77,4 @@ Client.on('messageCreate', message => {
 })
 
 // conectar
-Client.login(process.env.token_god_devil)
+Client.login(TOKEN_BOT)
