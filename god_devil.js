@@ -52,27 +52,9 @@ Client.on('messageCreate', message => {
         message.reply('La fecha y hora es: ' + dia + ', ' + diaN + ' de ' + mes + ' del ' + anio + ' y son las ' + hora + ':' + minutos + ' hs.')
         console.log('La Hora es: ' + dia + ' ' + hora + ':' + minutos + ' hs.')
     }
-
-    if (message.content === '!NuevaInvitacion') { // Este sería tu comando para generar una nueva invitación
-        // Verificar que el usuario que solicita la invitación tiene permisos para crearla (opcional)
-        if (!message.member.hasPermission('CREATE_INSTANT_INVITE')) {
-            return message.reply('No tienes permiso para generar una invitación.');
-        }
-
-        // Obtener el canal en el que el comando fue enviado
-        const channel = message.channel;
-
-        // Generar una nueva invitación para el canal
-        channel.createInvite({ maxAge: 604800 }) // 604800 segundos = 7 días
-            .then(invite => {
-            // Enviar el enlace de la nueva invitación al canal
-            message.channel.send(`¡Aquí tienes el nuevo enlace de invitación al servidor! (válido por 7 días) ${invite.url}`);
-        })
-        .catch(console.error);
-    }
     if(message.content === '!commands'){
-        message.reply('Los comandos a invocar son: ' + '\n' + '\n' + "!Hola" + '\n' + "!Repetir" + '\n' + "!hora" + '\n' + "!fecha" + '\n' + "!NuevaInvitacion")
-        console.log('Los comandos a invocar son: ' + '\n' + '\n' + "!Hola" + '\n' + "!Repetir" + '\n' + "!hora" + "\n" + "!fecha" + '\n' + "!NuevaInvitacion")
+        message.reply('Los comandos a invocar son: ' + '\n' + '\n' + "!Hola" + '\n' + "!Repetir" + '\n' + "!hora" + '\n' + "!fecha")
+        console.log('Los comandos a invocar son: ' + '\n' + '\n' + "!Hola" + '\n' + "!Repetir" + '\n' + "!hora" + "\n" + "!fecha")
     }
 })
 
